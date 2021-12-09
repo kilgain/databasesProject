@@ -1,4 +1,4 @@
-"","trail.id","trail.name","park.name","popularity","length","elevation.gain"
+"","trailId","trailName","parkName","popularity","length","elevationGain"
 "1",10020048,"Harding Ice Field Trail","Kenai Fjords National Park",24.8931,15610.598,1161.8976
 "3",10267857,"Exit Glacier Trail","Kenai Fjords National Park",17.7821,2896.812,81.9912
 "30",10187810,"Bright Angel Trail to Bright Angel Campground and River Trail","Grand Canyon National Park",37.4791,28485.318,1525.8288
