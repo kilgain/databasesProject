@@ -1,3 +1,6 @@
+<html>
+<body>
+
 <br><br>
 <table border="1" align="center">
 <tr>
@@ -30,12 +33,12 @@ if (isset($_POST['add']))
   $servername = "localhost";
   $username = "root";
   $password = "maple";
-  $db = "final";
+  $db = "dbfinal";
   $conn = new mysqli($servername, $username, $password, $db);
   if ($conn->connect_error) {
 		  die("Connection failed: " . $conn->connect_error);
   }
-  $query_contents = "INSERT INTO faketable (parkCode, parkName, state, acres, latitude, longitude) VALUES ('$park_code', '$park_name', '$state', '$acres', '$lat', '$long')";
+  $query_contents = "INSERT INTO park (parkCode, parkName, state, acres, latitude, longitude) VALUES ('$park_code', '$park_name', '$state', '$acres', '$lat', '$long')";
 
   if (!mysqli_query($conn, $query_contents)) {
     die(mysqli_error($conn));
@@ -43,7 +46,7 @@ if (isset($_POST['add']))
     echo "Data has been added.";
   }
   
-  $query_check = mysqli_query($conn, "SELECT * FROM faketable WHERE parkCode = \"{$park_code}\"");
+  $query_check = mysqli_query($conn, "SELECT * FROM park WHERE parkCode = \"{$park_code}\"");
   while ($row = mysqli_fetch_array($query_check)) 
   {
   echo
@@ -76,19 +79,19 @@ if (isset($_POST['remove']))
   $servername = "localhost";
   $username = "root";
   $password = "maple";
-  $db = "final";
+  $db = "dbfinal";
   $conn = new mysqli($servername, $username, $password, $db);
   if ($conn->connect_error) {
                   die("Connection failed: " . $conn->connect_error);
   }
-  $query_contents = "DELETE FROM faketable WHERE parkCode = \"$park_code\"";
+  $query_contents = "DELETE FROM park WHERE parkCode = \"$park_code\"";
 
   if (!mysqli_query($conn, $query_contents)) {
         die(mysqli_error($conn));
                     } else {
                                   echo "Data has been removed.";
                                       }
-  $query_check = mysqli_query($conn, "SELECT * FROM faketable WHERE parkCode = \"{$park_code}\"");
+  $query_check = mysqli_query($conn, "SELECT * FROM park WHERE parkCode = \"{$park_code}\"");
   while ($row = mysqli_fetch_array($query_check))
   {
   echo
@@ -104,3 +107,10 @@ if (isset($_POST['remove']))
 }
 ?>
 
+</table>
+
+<a href='/index.html'>Go to Home Page</a><br/>
+<a href='/insert.php'>Go Back to Data Insertion Page</a><br/>
+
+</body>
+</html>
